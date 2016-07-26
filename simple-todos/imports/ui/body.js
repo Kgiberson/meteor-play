@@ -6,7 +6,7 @@ import './body.html';
 
 Template.body.helpers({
 	tasks() {
-		return Tasks.find({});
+		return Tasks.find({ sort: { createdAt: -1} });
 	}
 });
 
@@ -15,6 +15,7 @@ Template.body.events({
 		// prevent default browser form submit
 		event.preventDefault();
 		// get value from form element
+		console.log(event)
 		const target = event.target;
 		const text = target.text.value;
 
